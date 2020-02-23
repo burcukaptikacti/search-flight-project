@@ -1,0 +1,32 @@
+version: "3.4"
+networks:
+  toughjet-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.10.0/16
+
+services:
+  toughjet.data.mysql:
+    build:
+      context: .
+      dockerfile: ToughJet.Mysql.Dockerfile
+    ports:
+      - "3307:3306"
+    networks:
+      toughjet-network:
+        ipv4_address: 10.20.10.102
+    security_opt:
+      - seccomp:unconfined
+
+  toughjet.api:
+    build:
+      context: .
+      dockerfile: ToughJet.Api.Dockerfile
+    ports:
+      - '8090:8090'
+    networks:
+      toughjet-network:
+        ipv4_address: 10.20.10.103
+    depends_on:
+      - toughjet.data.mysql 

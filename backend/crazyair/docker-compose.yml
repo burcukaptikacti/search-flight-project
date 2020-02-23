@@ -1,0 +1,32 @@
+version: "3.4"
+networks:
+  crazyair-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/16
+
+services:
+  crazyair.data.mysql:
+    build:
+      context: .
+      dockerfile: Crazyair.Mysql.Dockerfile
+    ports:
+      - "3308:3306"
+    networks:
+      crazyair-network:
+        ipv4_address: 10.10.10.102
+    security_opt:
+      - seccomp:unconfined
+
+  crazyair.api:
+    build:
+      context: .
+      dockerfile: Crazyair.Api.Dockerfile
+    ports:
+      - '8088:8088'
+    networks:
+      crazyair-network:
+        ipv4_address: 10.10.10.103
+    depends_on:
+      - crazyair.data.mysql 
