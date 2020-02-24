@@ -22,6 +22,7 @@ public class FlightRepositoryImpl implements FlightRepository {
 	public List<Flight> findFlightBy(String from, String to, LocalDate outboundDate, int numberOfAdults) {
 
 		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
 
 		TypedQuery<Flight> query = em.createQuery("SELECT F FROM Flight F "
 				+ "where departureAirport=:departureAirport and arrivalAirport=:arrivalAirport "

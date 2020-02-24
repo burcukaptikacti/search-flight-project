@@ -48,6 +48,9 @@ public class FlightFinderService {
 		if (request.getOrigin() == null || request.getOrigin().isEmpty())
 			throw new IllegalArgumentException("Origin cannot be empty!");
 
+		if (request.getDestination().equalsIgnoreCase(request.getOrigin()))
+			throw new IllegalArgumentException("Origin and destination cannot be same!");
+
 		if (request.getNumberOfPassengers() < 1)
 			throw new IllegalArgumentException("Number of passengers cannot be lower than one!");
 

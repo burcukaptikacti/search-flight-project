@@ -8,7 +8,9 @@ networks:
 
 services:
   crazyair.data.mysql:
-    image: burcusimo/crazyair-mysql
+    build:
+      context: ./backend/crazyair
+      dockerfile: Crazyair.Mysql.Dockerfile
     ports:
       - '3308:3306'
     networks:
@@ -19,7 +21,9 @@ services:
     restart: always
 
   toughjet.data.mysql:
-    image: burcusimo/toughjet-mysql
+    build:
+      context: ./backend/toughjet
+      dockerfile: ToughJet.Mysql.Dockerfile
     ports:
       - '3307:3306'
     networks:
@@ -30,7 +34,9 @@ services:
     restart: always
 
   crazyair.api:
-    image: burcusimo/crazyair-api
+    build:
+      context: ./backend/crazyair
+      dockerfile: Crazyair.Api.Dockerfile
     ports:
       - '8088:8088'
     networks:
@@ -41,7 +47,9 @@ services:
     restart: always
 
   toughjet.api:
-    image: burcusimo/toughjet-api
+    build:
+      context: ./backend/toughjet
+      dockerfile: ToughJet.Api.Dockerfile
     ports:
       - '8090:8090'
     networks:
@@ -49,16 +57,4 @@ services:
         ipv4_address: 10.10.10.105
     depends_on:
       - toughjet.data.mysql
-    restart: always
-
-  busyflight.api:
-    image: burcusimo/busyflight-api
-    ports:
-      - '8080:8080'
-    networks:
-      travix-network:
-        ipv4_address: 10.10.10.101
-    depends_on:
-      - crazyair.api
-      - toughjet.api
     restart: always

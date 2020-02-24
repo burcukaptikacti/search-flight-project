@@ -11,9 +11,9 @@ import com.travix.medusa.busyflights.domain.toughjet.ToughJetResponse;
 public class ToughJetFlightSupplier {
 
 	public ToughJetResponse[] findFlight(ToughJetRequest toughJetRequest) {
-		String URI = UriComponentsBuilder.newInstance().scheme("http").host("10.20.10.103").port(8090)
-				.pathSegment("flights").queryParam("from", toughJetRequest.getFrom())
-				.queryParam("to", toughJetRequest.getTo()).queryParam("outboundDate", toughJetRequest.getOutboundDate())
+		String URI = UriComponentsBuilder.newInstance().scheme("http").host("10.10.10.105").port(8090)
+				.pathSegment("flights").queryParam("from", toughJetRequest.getFrom()).queryParam("to", toughJetRequest.getTo())
+				.queryParam("outboundDate", toughJetRequest.getOutboundDate())
 				.queryParam("inboundDate", toughJetRequest.getInboundDate())
 				.queryParam("numberOfAdults", toughJetRequest.getNumberOfAdults()).build().toUriString();
 

@@ -15,4 +15,4 @@ ARG DEPENDENCY=/workspace/app/target/dependency
 COPY --from=mavenBuild ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=mavenBuild ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=mavenBuild ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.travix.toughjet.ToughjetApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.travix.medusa.busyflights.BusyFlightsApplication"]
