@@ -16,7 +16,7 @@ Flight Search Application for travix homework, based on a simplified microservic
 
 ### Adding A New Flight Supplier
 
-![System Design](/documentation-resources/travix-homework-system-design.png)
+![System Design](/documentation-resources/travix-homewprk-uml-diagram.PNG)
 
 - I've applied "Adapter Pattern" and "Factory Method Pattern" to handle the differences of both input and output data. When a new supplier  will be added, below steps can be follwed.
 
