@@ -7,6 +7,16 @@ Flight Search Application for travix homework, based on a simplified microservic
 
 
 ### How To Run
+Simply execute
+
+> docker-compose up
+
+and go to
+
+> localhost:8080/swagger-ui.html
+
+I pushed builded containers to my own docker hub account to prevent mvn build times etc.
+
 ### Screen Shots
 
 ### Tech Stack
