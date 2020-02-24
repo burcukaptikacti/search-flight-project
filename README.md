@@ -15,9 +15,22 @@ and go to
 
 > localhost:8080/swagger-ui.html
 
+**Details**
+- BusyFlight API: http://localhost:8080/swagger-ui.html
+- CrazyAir API: http://localhost:8088/swagger-ui.html
+- ToughJey API http://localhost:8090/swagger-ui.html
+
+**Data**
+* I've insert sample data between 2020-03-01 and  2020-03-07. Sample airports: AMS,SAW,ROM
+
 I pushed builded containers to my own docker hub account to prevent mvn build times etc.
 
 ### Screen Shots
+![System Design](/documentation-resources/busy-flight-request.png)
+![System Design](/documentation-resources/busy-flight-response.png)
+![System Design](/documentation-resources/crazyair-api-request.png)
+![System Design](/documentation-resources/crazyair-api-response.png)
+![System Design](/documentation-resources/crazyair-api.png)
 
 ### Tech Stack
 * API : Java8, SpringBoot
